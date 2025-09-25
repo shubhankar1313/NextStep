@@ -6,24 +6,42 @@
   <link rel="stylesheet" href="static/css/style.css">
 </head>
 <body>
-  <h1>NextStep</h1>
 
-  <div class="controls top-controls">
-    <button id="theme-toggle">Toggle Theme</button>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="navbar-left">
+      <a href="index.html" class="nav-link">Watchlist</a>
+      <a href="logs.html" class="nav-link">Logs</a>
+    </div>
+    <div class="navbar-right">
+      <button id="theme-toggle">Toggle Theme</button>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1>NextStep</h1>
+
+    <!-- Add video form -->
+    <div id="add-form">
+      <input type="text" id="video-input" placeholder="Paste YouTube link here...">
+      <button id="add-btn">Add</button>
+    </div>
+
+    <!-- Export/Import controls -->
+    <div class="controls">
+      <button class="export-btn" id="export-btn">Export</button>
+      <button class="import-btn" id="import-btn">Import</button>
+      <input type="file" id="import-file" accept=".json">
+    </div>
+
+    <!-- Video list -->
+    <div class="video-list" id="video-list"></div>
   </div>
 
-  <div id="add-form">
-    <input type="text" id="video-input" placeholder="Paste YouTube link here...">
-    <button id="add-btn">Add</button>
+  <!-- Footer -->
+  <div class="footer" style="text-align: center; margin-top: 30px;">
+    <a href="about.html">Logs</a>
   </div>
-
-  <div class="controls">
-    <button class="export-btn" id="export-btn">Export</button>
-    <button class="import-btn" id="import-btn">Import</button>
-    <input type="file" id="import-file" accept=".json">
-  </div>
-
-  <div class="video-list" id="video-list"></div>
 
   <script src="static/js/script.js"></script>
 </body>

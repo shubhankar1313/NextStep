@@ -1,18 +1,68 @@
 /* ---------------- BODY & GLOBAL ---------------- */
+* {
+  box-sizing: border-box; /* Important for responsive width */
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: Arial, sans-serif;
   background: #f9f9f9;
   color: #333;
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 60px 20px 20px 20px; /* top padding to avoid overlap with top-right toggle */
+  overflow-x: hidden; /* Prevent horizontal scroll */
   transition: background 0.3s, color 0.3s;
 }
 
-h1 {
-  text-align: center;
+/* Container for page content to center and constrain width */
+.container {
+  max-width: 800px; /* keeps content readable */
+  margin: 20px auto;
+  padding: 0 20px; /* small padding for smaller screens */
+}
+
+/* ---------------- NAVBAR ---------------- */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 5%; /* use % instead of fixed px for responsiveness */
+  background: #f0f0f0;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 500;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar-left {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #333;
   font-weight: 500;
-  margin-bottom: 20px;
+  transition: color 0.2s;
+}
+
+.nav-link:hover {
+  color: #007bff;
+}
+
+.navbar-right button {
+  padding: 6px 12px;
+  font-size: 13px;
+  border-radius: 6px;
+  cursor: pointer;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  transition: background 0.3s;
+}
+
+.navbar-right button:hover {
+  background: #0056b3;
 }
 
 /* ---------------- ADD FORM ---------------- */
@@ -133,33 +183,46 @@ button {
   color: #fff;
 }
 
-/* ---------------- TOP-RIGHT THEME TOGGLE ---------------- */
-.top-controls {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 1000;
+/* ---------------- FOOTER LINKS ---------------- */
+.footer {
+  text-align: center;
+  margin: 30px 0;
 }
 
-.top-controls button {
-  padding: 6px 12px;
-  font-size: 13px;
-  border-radius: 6px;
-  cursor: pointer;
-  background: #007bff;
-  color: #fff;
-  border: none;
-  transition: background 0.3s;
+.footer a {
+  color: #007bff;
+  text-decoration: none;
+  font-size: 14px;
 }
 
-.top-controls button:hover {
-  background: #0056b3;
+.footer a:hover {
+  text-decoration: underline;
 }
 
 /* ---------------- DARK THEME ---------------- */
 body.dark {
   background: #181818;
   color: #eaeaea;
+}
+
+body.dark .navbar {
+  background: #242424;
+}
+
+body.dark .nav-link {
+  color: #eaeaea;
+}
+
+body.dark .nav-link:hover {
+  color: #6f42c1;
+}
+
+body.dark .navbar-right button {
+  background: #6f42c1;
+}
+
+body.dark .navbar-right button:hover {
+  background: #532a91;
 }
 
 body.dark .video-card {
@@ -189,11 +252,6 @@ body.dark .remove-btn {
   background: #ff6b6b;
 }
 
-body.dark .top-controls button {
-  background: #6f42c1;
-  color: #fff;
-}
-
-body.dark .top-controls button:hover {
-  background: #532a91;
+body.dark .footer a {
+  color: #6f42c1;
 }
