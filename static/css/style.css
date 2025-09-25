@@ -1,17 +1,21 @@
+/* ---------------- BODY & GLOBAL ---------------- */
 body {
   font-family: Arial, sans-serif;
   background: #f9f9f9;
   color: #333;
   max-width: 800px;
   margin: 40px auto;
-  padding: 20px;
+  padding: 60px 20px 20px 20px; /* top padding to avoid overlap with top-right toggle */
+  transition: background 0.3s, color 0.3s;
 }
 
 h1 {
   text-align: center;
   font-weight: 500;
+  margin-bottom: 20px;
 }
 
+/* ---------------- ADD FORM ---------------- */
 #add-form {
   display: flex;
   gap: 10px;
@@ -40,6 +44,7 @@ h1 {
   background: #cc0000;
 }
 
+/* ---------------- CONTROLS ---------------- */
 .controls {
   text-align: center;
   margin-bottom: 20px;
@@ -64,6 +69,11 @@ h1 {
   color: #fff;
 }
 
+#import-file {
+  display: none;
+}
+
+/* ---------------- VIDEO LIST ---------------- */
 .video-list {
   display: grid;
   gap: 15px;
@@ -76,7 +86,7 @@ h1 {
   border-radius: 10px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   padding: 10px;
-  transition: transform 0.1s ease;
+  transition: transform 0.1s ease, background 0.3s, color 0.3s;
 }
 
 .video-card:hover {
@@ -123,6 +133,67 @@ button {
   color: #fff;
 }
 
-#import-file {
-  display: none;
+/* ---------------- TOP-RIGHT THEME TOGGLE ---------------- */
+.top-controls {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.top-controls button {
+  padding: 6px 12px;
+  font-size: 13px;
+  border-radius: 6px;
+  cursor: pointer;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  transition: background 0.3s;
+}
+
+.top-controls button:hover {
+  background: #0056b3;
+}
+
+/* ---------------- DARK THEME ---------------- */
+body.dark {
+  background: #181818;
+  color: #eaeaea;
+}
+
+body.dark .video-card {
+  background: #242424;
+  box-shadow: 0 2px 6px rgba(255,255,255,0.1);
+}
+
+body.dark #video-input {
+  background: #333;
+  color: #eaeaea;
+  border: 1px solid #555;
+}
+
+body.dark #add-btn {
+  background: #ff4d4d;
+}
+
+body.dark .watch-btn {
+  background: #3cb371;
+}
+
+body.dark .watch-btn.watched {
+  background: #555;
+}
+
+body.dark .remove-btn {
+  background: #ff6b6b;
+}
+
+body.dark .top-controls button {
+  background: #6f42c1;
+  color: #fff;
+}
+
+body.dark .top-controls button:hover {
+  background: #532a91;
 }

@@ -4,7 +4,9 @@ const list = document.getElementById("video-list");
 const exportBtn = document.getElementById("export-btn");
 const importBtn = document.getElementById("import-btn");
 const importFile = document.getElementById("import-file");
+const themeToggle = document.getElementById("theme-toggle");
 
+/* ---------------- Video Watchlist Logic ---------------- */
 function getVideos() {
   return JSON.parse(localStorage.getItem("videos")) || [];
 }
@@ -122,5 +124,24 @@ importFile.addEventListener("change", () => {
   }
 });
 
-// Initial render
+/* ---------------- Theme Toggle Logic ---------------- */
+function applyTheme(theme) {
+  if (theme === "dark") {
+    document.body.classList.add("dark");
+  } else {
+    document.body.classList.remove("dark");
+  }
+}
+
+themeToggle.addEventListener("click", () => {
+  const currentTheme = document.body.classList.contains("dark") ? "dark" : "light";
+  const newTheme = currentTheme === "dark" ? "light" : "dark";
+  localStorage.setItem("theme", newTheme);
+  applyTheme(newTheme);
+});
+
+// Apply saved theme on load
+applyTheme(localStorage.getItem("theme") || "light");
+
+/* ---------------- Initial Render ---------------- */
 renderVideos();
